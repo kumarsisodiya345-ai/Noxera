@@ -1,6 +1,3 @@
-# STEP 5 — SCRIPT.JS CODE
-
-Paste this inside:
 
 ```text
 js/script.js
