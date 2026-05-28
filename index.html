@@ -1,1 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOXÉRA — Luxury Fragrances</title>
 
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:25px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      font-size:34px;
+      letter-spacing:8px;
+      font-family:'Cormorant Garamond', serif;
+      color:#d4af37;
+      font-weight:600;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:35px;
+    }
+
+    .nav-links a{
+      color:#eee;
+      font-size:14px;
+      letter-spacing:2px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#d4af37;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+      url('https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1974&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:0 20px;
+    }
+
+    .hero-content h1{
+      font-size:90px;
+      font-family:'Cormorant Garamond', serif;
+      letter-spacing:12px;
+      color:#d4af37;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      max-width:700px;
+      margin:auto;
+      font-size:18px;
+      color:#ddd;
+      line-height:1.8;
+      margin-bottom:40px;
+    }
+
+    .hero-btn{
+      padding:16px 40px;
+      border:1px solid #d4af37;
+      color:#d4af37;
+      letter-spacing:3px;
+      font-size:13px;
+      transition:0.4s;
+    }
+
+    .hero-btn:hover{
+      background:#d4af37;
+      color:black;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:120px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-size:55px;
+      font-family:'Cormorant Garamond', serif;
+      color:#d4af37;
+      margin-bottom:15px;
+      letter-spacing:5px;
+    }
+
+    .section-title p{
+      color:#aaa;
+      font-size:16px;
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    /* COLLECTION */
+
+    .collection-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .perfume-card{
+      background:#111;
+      border:1px solid rgba(212,175,55,0.15);
+      padding:40px 30px;
+      text-align:center;
+      transition:0.4s;
+    }
+
+    .perfume-card:hover{
+      transform:translateY(-10px);
+      border-color:#d4af37;
+    }
+
+    .perfume-card img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      margin-bottom:25px;
+    }
+
+    .perfume-card h3{
+      font-size:34px;
+      font-family:'Cormorant Garamond', serif;
+      color:#d4af37;
+      margin-bottom:15px;
+      letter-spacing:3px;
+    }
+
+    .perfume-card p{
+      color:#bbb;
+      line-height:1.7;
+      font-size:15px;
+      margin-bottom:25px;
+    }
+
+    .price{
+      color:white;
+      font-size:20px;
+      letter-spacing:2px;
+    }
+
+    /* STORY */
+
+    .story{
+      background:#0c0c0c;
+      text-align:center;
+    }
+
+    .story p{
+      max-width:900px;
+      margin:auto;
+      font-size:19px;
+      color:#ccc;
+      line-height:2;
+    }
+
+    /* PREBOOK */
+
+    .prebook{
+      text-align:center;
+    }
+
+    .prebook-box{
+      background:#111;
+      border:1px solid rgba(212,175,55,0.2);
+      padding:70px 40px;
+      max-width:850px;
+      margin:auto;
+    }
+
+    .prebook-box h2{
+      font-size:55px;
+      color:#d4af37;
+      font-family:'Cormorant Garamond', serif;
+      margin-bottom:20px;
+      letter-spacing:4px;
+    }
+
+    .prebook-box p{
+      color:#bbb;
+      line-height:1.8;
+      margin-bottom:40px;
+    }
+
+    .prebook-btn{
+      padding:18px 45px;
+      background:#d4af37;
+      color:black;
+      font-weight:600;
+      letter-spacing:2px;
+      transition:0.3s;
+    }
+
+    .prebook-btn:hover{
+      opacity:0.8;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:40px 8%;
+      border-top:1px solid rgba(255,255,255,0.08);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    footer p{
+      color:#888;
+      font-size:14px;
+    }
+
+    .socials{
+      display:flex;
+      gap:20px;
+    }
+
+    .socials a{
+      color:#d4af37;
+      font-size:14px;
+      letter-spacing:2px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      .hero-content h1{
+        font-size:52px;
+        letter-spacing:6px;
+      }
+
+      .hero-content p{
+        font-size:15px;
+      }
+
+      .section-title h2{
+        font-size:40px;
+      }
+
+      .prebook-box h2{
+        font-size:38px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="logo">NOXÉRA</div>
+
+    <div class="nav-links">
+      <a href="#collection">COLLECTION</a>
+      <a href="#story">STORY</a>
+      <a href="#prebook">PRE-BOOK</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+      <h1>NOXÉRA</h1>
+
+      <p>
+        Luxury has a new scent. Crafted for those who leave an impression before speaking.
+        A signature fragrance experience inspired by elegance, mystery, and timeless confidence.
+      </p>
+
+      <a href="#prebook" class="hero-btn">
+        RESERVE YOUR BOTTLE
+      </a>
+    </div>
+
+  </section>
+
+  <!-- COLLECTION -->
+
+  <section id="collection">
+
+    <div class="section-title">
+      <h2>SIGNATURE COLLECTION</h2>
+
+      <p>
+        Discover the essence of NOXÉRA through our exclusive fragrance line designed for modern luxury.
+      </p>
+    </div>
+
+    <div class="collection-grid">
+
+      <div class="perfume-card">
+        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=987&auto=format&fit=crop" alt="NOXÉRA NOIR">
+
+        <h3>NOIR</h3>
+
+        <p>
+          Deep woody notes blended with smoky amber and dark vanilla.
+          Designed for powerful evenings.
+        </p>
+
+        <div class="price">₹1,999</div>
+      </div>
+
+      <div class="perfume-card">
+        <img src="https://images.unsplash.com/photo-1615634262417-79731e3bb0d1?q=80&w=987&auto=format&fit=crop" alt="NOXÉRA ELLE">
+
+        <h3>ELLE</h3>
+
+        <p>
+          Soft floral jasmine layered with white musk and luxurious sweetness.
+          Pure feminine elegance.
+        </p>
+
+        <div class="price">₹1,899</div>
+      </div>
+
+      <div class="perfume-card">
+        <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=987&auto=format&fit=crop" alt="NOXÉRA OUD">
+
+        <h3>OUD</h3>
+
+        <p>
+          Rich oud infused with saffron and leather accords.
+          A bold luxury statement.
+        </p>
+
+        <div class="price">₹2,299</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- STORY -->
+
+  <section class="story" id="story">
+
+    <div class="section-title">
+      <h2>THE BRAND STORY</h2>
+    </div>
+
+    <p>
+      NOXÉRA was born from the idea that fragrance is not just a scent —
+      it is identity, confidence, and presence. Every bottle is designed to feel
+      luxurious, timeless, and unforgettable. Inspired by modern elegance and crafted
+      for individuals who demand sophistication in every detail.
+    </p>
+
+  </section>
+
+  <!-- PREBOOK -->
+
+  <section class="prebook" id="prebook">
+
+    <div class="prebook-box">
+
+      <h2>PRE-BOOK NOW</h2>
+
+      <p>
+        Be among the first to experience the luxury of NOXÉRA.
+        Limited early access bottles available exclusively for launch members.
+      </p>
+
+      <a href="#" class="prebook-btn">
+        RESERVE NOW
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 NOXÉRA. All Rights Reserved.
+    </p>
+
+    <div class="socials">
+      <a href="#">INSTAGRAM</a>
+      <a href="#">CONTACT</a>
+    </div>
+
+  </footer>
+
+</body>
+</html>
